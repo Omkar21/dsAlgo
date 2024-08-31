@@ -1,0 +1,24 @@
+Leetcode problem: 125_ Valid Palindrome
+class Solution {
+    public boolean isPalindrome(String s) {
+
+        String charString = "";
+
+        for(Character c: s.toCharArray()){
+            if(Character.isDigit(c)||Character.isLetter(c)){
+                charString+=c;
+            }
+        }
+        charString = charString.toLowerCase();
+        int ini_pointer = 0;
+        int fin_pointer = charString.length()-1;
+        while(ini_pointer<fin_pointer){
+            if(charString.charAt(ini_pointer) != charString.charAt(fin_pointer)){
+                return false;
+            }
+            ini_pointer++;
+            fin_pointer--;
+        }
+        return true;
+    }
+}
