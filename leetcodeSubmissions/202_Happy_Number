@@ -1,0 +1,30 @@
+//Solution Leetcode 202: Happy Number
+class Solution {
+    public static int makeSquare(int n){
+        if(n==1){
+            return n;
+        }
+        int sum = 0;
+        while(n!=0){
+            sum =sum + ((n%10) * (n%10));
+            n = n/10;
+        }
+       System.out.println("sum: "+sum);
+
+        return sum;
+    }
+    public boolean isHappy(int n) {
+       int slow = n;
+       int fast = n;
+       
+       do{
+        slow = makeSquare(slow);
+        fast = makeSquare(makeSquare(fast));
+        System.out.println("slow: "+slow+" fast: "+fast);
+
+
+       }
+        while(slow!=fast);
+        return slow == 1;
+    }
+}

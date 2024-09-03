@@ -1,0 +1,14 @@
+//Leetcode problem: 1 Two Sum
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        TreeMap <Integer, Integer> out = new TreeMap <Integer, Integer> ();
+        for(int i = 0; i<nums.length; i++){
+            int remain = target - nums[i];
+            if(out.containsKey(remain)){
+                return new int [] {out.get(remain),i};
+            }
+            out.put(nums[i], i);
+        }
+        return new int [] {0,0};
+    }
+}
