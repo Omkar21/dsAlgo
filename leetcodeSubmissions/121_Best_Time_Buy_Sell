@@ -1,0 +1,23 @@
+//Leetcode: 121 Best Time to Buy and Sell Stock
+class Solution {
+    public int maxProfit(int[] prices) {
+        int diff = 0;
+        int minBuy = prices[0];
+
+        if(prices.length==1){
+            return diff;
+        }else{
+            for(int i =1; i<prices.length; i++){
+                if(prices[i] < minBuy){
+                    minBuy = prices[i];
+                }else{
+                    if((prices[i] - minBuy)>diff){
+                        diff = prices[i] - minBuy;
+                    }
+                }
+            }
+        }
+
+        return diff;
+    }
+}
