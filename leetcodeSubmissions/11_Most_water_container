@@ -1,0 +1,25 @@
+//Leetcode 11: Container With Most Water
+class Solution {
+    public int maxArea(int[] height) {
+        int maxWater = 0;
+        int startIndex = 0;
+        int endIndex = height.length-1;
+        while(endIndex>startIndex){
+            int current = (endIndex-startIndex);
+            if(height[endIndex]>height[startIndex]){
+                current = current*height[startIndex];
+                startIndex++;
+            }else{
+                current = current*height[endIndex];
+                endIndex--;
+            }
+            if(maxWater<current){
+                maxWater = current;
+
+            }
+
+            }
+
+        return maxWater;
+    }
+}
